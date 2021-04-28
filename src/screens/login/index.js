@@ -8,16 +8,15 @@ import {
 	StyleSheet, 
 	Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import axios from 'axios';
 
 export default function Login(props){
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	
-	const login = async ()=>{
+	const login = async()=>{
 
-		let res = await fetch("http://10.0.0.101:8000/api/login", {
+		let res = await fetch("http://localhost:8000/api/login", {
 			method:'POST',
 			headers:{
 				'Content-Type': 'application/json',
@@ -33,9 +32,9 @@ export default function Login(props){
 		
 		if(json.token){
 		   await AsyncStorage.setItem('userData',JSON.stringify(json));
-			props.navigation.navigate("Content")
+			props.navigation.navigate("Content");
 		}else{
-			alert('Erro de login e/ senha!')
+			alert('Erro de login e/ou senha!');
 		}
 		
 	}
