@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Button} from 'react-native';
 import Header from '../../../components/header'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -48,7 +48,7 @@ export default function Home(){
 			status = "Atrasado!";
 		}
 
-		await fetch("http://localhost:8000/api/input", {
+		await fetch("http://10.0.0.109:8000/api/input", {
 			method:'POST',
 			headers:{
 				'Content-Type': 'application/json',
@@ -63,11 +63,28 @@ export default function Home(){
 			})
 		})
 	}
-
+	function getTest(){
+		alert("test")
+	}
 	return(
 		<View>
 			<Header />
+			<TouchableOpacity onPress={() => getTest()}>
+				<Text>Test</Text>
+			</TouchableOpacity>
 		</View>
 	);
 }
 
+const style = StyleSheet.create({
+
+	btnSubmit:{
+		backgroundColor:'darkgray',
+		width:'90%',
+		height:40,
+		alignItems:'center',
+		justifyContent:'center',
+		borderRadius:7
+	},
+
+})

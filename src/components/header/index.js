@@ -54,7 +54,7 @@ export default function Header(){
 			status = "Largou cedo!";
 		}
 
-		await fetch("http://localhost:8000/api/output", {
+		await fetch("http://10.0.0.109:8000/api/output", {
 			method:'POST',
 			headers:{
 				'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ export default function Header(){
 				<Text style={style.title}>{`Olá, ${users}!`}</Text>
 			</View>
 			<View>
-				<TouchableOpacity onPress={getOutput}>
+				<TouchableOpacity style={style.btnSubmit} onPress={getOutput}>
 					<Text style={style.title}>Sair</Text>
 				</TouchableOpacity>
 			</View>
@@ -95,5 +95,14 @@ const style = StyleSheet.create({
 	},
 	title:{
 		color:"#FFF",
-	}
+	},
+
+	btnSubmit:{
+		backgroundColor:'darkgray',
+		width:'70%',
+		height:40,
+		alignItems:'center',
+		justifyContent:'center',
+		borderRadius:7
+	},
 })

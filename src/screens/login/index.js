@@ -16,7 +16,7 @@ export default function Login(props){
 	
 	const login = async()=>{
 
-		let res = await fetch("http://localhost:8000/api/login", {
+		let res = await fetch("http://10.0.0.109:8000/api/login", {
 			method:'POST',
 			headers:{
 				'Content-Type': 'application/json',
