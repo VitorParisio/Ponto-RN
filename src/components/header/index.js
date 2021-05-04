@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Button} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Header(){
@@ -74,10 +74,10 @@ export default function Header(){
 	return(
 		<View style={style.container}>
 			<View>
-				<Text style={style.title}>{`Olá, ${users}!`}</Text>
+				<Text style={style.title}>{`${users}`}</Text>
 			</View>
 			<View>
-				<TouchableOpacity style={style.btnSubmit} onPress={getOutput}>
+				<TouchableOpacity style={style.btnExit} onPress={getOutput}>
 					<Text style={style.title}>Sair</Text>
 				</TouchableOpacity>
 			</View>
@@ -88,21 +88,20 @@ export default function Header(){
 const style = StyleSheet.create({
 	container:{
 		flex:1,
-		padding:24,
-		backgroundColor:"#000",
-		flexDirection:"row",
-		justifyContent : 'space-between',
+		padding:30,
+		backgroundColor:"blue",
+
+		alignItems:'center',
 	},
 	title:{
 		color:"#FFF",
+		fontSize:15
 	},
 
-	btnSubmit:{
-		backgroundColor:'darkgray',
-		width:'70%',
-		height:40,
-		alignItems:'center',
+	btnExit:{
+		width:'100%',
+		height:20,
+		
 		justifyContent:'center',
-		borderRadius:7
 	},
 })

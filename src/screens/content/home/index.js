@@ -69,9 +69,6 @@ export default function Home(){
 	return(
 		<View>
 			<Header />
-			<TouchableOpacity onPress={() => getTest()}>
-				<Text>Test</Text>
-			</TouchableOpacity>
 		</View>
 	);
 }
